@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letters for My bubu 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 50%, #fce4ec 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 3rem;
+            color: #e91e63;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .bubu-bubu-icons {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Category Sections */
+        .category {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .category h2 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .category.valentines h2 { color: #e91e63; }
+        .category.sad h2 { color: #64b5f6; }
+        .category.angry h2 { color: #ff8a80; }
+        .category.love h2 { color: #f48fb1; }
+        .category.reassurance h2 { color: #81c784; }
+
+        /* Special Valentine's envelope */
+        .category.valentines {
+            background: linear-gradient(135deg, rgba(255,182,193,0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(255,182,193,0.4) 100%);
+            border: 3px solid #f48fb1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category.valentines::before {
+            content: '💕';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .category.valentines::after {
+            content: '💕';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .valentine-envelope .envelope-front {
+            background: linear-gradient(145deg, #ff6b8a 0%, #e91e63 100%);
+            width: 180px;
+            height: 130px;
+        }
+
+        .valentine-envelope .envelope-front::before {
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            border-top: 60px solid #d81b60;
+        }
+
+        .valentine-envelope .envelope-front::after {
+            content: '💝';
+            font-size: 2.5rem;
+        }
+
+        .valentine-envelope .envelope {
+            width: 180px;
+            height: 130px;
+        }
+
+        .valentine-envelope .envelope-back {
+            width: 180px;
+            height: 130px;
+        }
+
+        .valentine-envelope .envelope-number {
+            background: rgba(255,255,255,0.9);
+            color: #e91e63;
+            font-size: 0.8rem;
+            padding: 3px 12px;
+        }
+
+        .envelopes-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Envelope Styles */
+        .envelope-wrapper {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .envelope {
+            width: 150px;
+            height: 110px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        .envelope.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .envelope-front, .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .envelope-front {
+            background: linear-gradient(145deg, #ffcdd2 0%, #f8bbd9 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 3px solid #fff;
+        }
+
+        .envelope-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-top: 50px solid #f48fb1;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .envelope-front::after {
+            content: '💌';
+            font-size: 2rem;
+            position: relative;
+            top: 10px;
+        }
+
+        .envelope-number {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9rem;
+            color: #fff;
+            font-weight: 600;
+            background: rgba(233, 30, 99, 0.7);
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+
+        .envelope-back {
+            background: linear-gradient(145deg, #e3f2fd 0%, #fce4ec 100%);
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 3px solid #fff;
+        }
+
+        .envelope-back::after {
+            content: '💕';
+            font-size: 2.5rem;
+        }
+
+        .envelope.opened .envelope-front::after {
+            content: '💌';
+            filter: grayscale(0.3);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: linear-gradient(145deg, #fff 0%, #fce4ec 100%);
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalPop 0.3s ease;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal h3 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.8rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        .modal .bubu-img {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+            accent-color: #e91e63;
+        }
+
+        .checkbox-container label {
+            color: #555;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-confirm {
+            background: linear-gradient(145deg, #ec407a, #e91e63);
+            color: white;
+        }
+
+        .btn-confirm:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-confirm:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-cancel {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-cancel:hover {
+            background: #eee;
+        }
+
+        /* Message Modal (Letter) */
+        .letter-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .letter-modal-overlay.active {
+            display: flex;
+        }
+
+        .letter-modal {
+            background: #fffef9;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 5px;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.05),
+                0 30px 60px rgba(0,0,0,0.3),
+                inset 0 0 80px rgba(255,182,193,0.1);
+            position: relative;
+            animation: letterUnfold 0.5s ease;
+            overflow: hidden;
+        }
+
+        @keyframes letterUnfold {
+            0% {
+                transform: scale(0.3) rotateX(90deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05) rotateX(0deg);
+            }
+            100% {
+                transform: scale(1) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        .letter-header {
+            background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 100%);
+            padding: 25px 30px 20px;
+            text-align: center;
+            border-bottom: 2px dashed #f8bbd9;
+        }
+
+        .letter-header .letter-icons {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .letter-photo {
+            display: none;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 4px solid #fff;
+            object-fit: cover;
+        }
+
+        .letter-photo.show {
+            display: block;
+        }
+
+        .letter-header h3 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.6rem;
+            color: #e91e63;
+            margin: 0;
+        }
+
+        .letter-content {
+            padding: 30px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .letter-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .letter-content::-webkit-scrollbar-track {
+            background: #fce4ec;
+            border-radius: 4px;
+        }
+
+        .letter-content::-webkit-scrollbar-thumb {
+            background: #f8bbd9;
+            border-radius: 4px;
+        }
+
+        .letter-text {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.35rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+
+        .letter-footer {
+            padding: 20px 30px 25px;
+            text-align: center;
+            border-top: 2px dashed #f8bbd9;
+            background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
+        }
+
+        .letter-footer .signature {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.4rem;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        .letter-close-btn {
+            padding: 12px 35px;
+            background: linear-gradient(145deg, #ec407a, #e91e63);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .letter-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Paper texture effect */
+        .letter-modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .letter-header, .letter-content, .letter-footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative corner curls */
+        .letter-modal::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, transparent 50%, #f0e6d3 50%);
+            box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+            border-radius: 0 0 5px 0;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatUp 8s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Bubu bubu Characters */
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .character {
+            font-size: 5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .character:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+
+        .footer p {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.3rem;
+            color: #e91e63;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .envelope {
+                width: 120px;
+                height: 90px;
+            }
+
+            .envelope-front::before {
+                border-left: 60px solid transparent;
+                border-right: 60px solid transparent;
+                border-top: 40px solid #f48fb1;
+            }
+
+            .message-content {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="hearts"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Love Letters for My bubu 💕</h1>
+            <div class="characters">
+                <span class="character">🐻</span>
+                <span class="character">🐼</span>
+            </div>
+            <p>Click an envelope when you need it most...</p>
+        </header>
+
+        <!-- Open on Valentine's Day -->
+        <section class="category valentines">
+            <h2>💘 Open on Valentine's Day 💘</h2>
+            <div class="envelopes-container">
+                <div class="envelope-wrapper valentine-envelope" onclick="openModal(this, 'valentines', 0)">
+                    <div class="envelope" data-category="valentines" data-index="0">
+                        <div class="envelope-front">
+                            <span class="envelope-number">Feb 14th</span>
+                        </div>
+                        <div class="envelope-back"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open When Sad -->
+        <section class="category sad">
+            <h2>💧 Open When You're Sad 💧</h2>
+            <div class="envelopes-container">
+                <div class="envelope-wrapper" onclick="openModal(this, 'sad', 0)">
+                    <div class="envelope" data-category="sad" data-index="0">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#1</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'sad', 1)">
+                    <div class="envelope" data-category="sad" data-index="1">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#2</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'sad', 2)">
+                    <div class="envelope" data-category="sad" data-index="2">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#3</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open When Angry -->
+        <section class="category angry">
+            <h2>😤 Open When You're Angry at Me 😤</h2>
+            <div class="envelopes-container">
+                <div class="envelope-wrapper" onclick="openModal(this, 'angry', 0)">
+                    <div class="envelope" data-category="angry" data-index="0">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#1</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'angry', 1)">
+                    <div class="envelope" data-category="angry" data-index="1">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#2</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'angry', 2)">
+                    <div class="envelope" data-category="angry" data-index="2">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#3</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open When Not in Love -->
+        <section class="category love">
+            <h2>💔 Open When You're Not Feeling the Love 💔</h2>
+            <div class="envelopes-container">
+                <div class="envelope-wrapper" onclick="openModal(this, 'love', 0)">
+                    <div class="envelope" data-category="love" data-index="0">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#1</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'love', 1)">
+                    <div class="envelope" data-category="love" data-index="1">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#2</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'love', 2)">
+                    <div class="envelope" data-category="love" data-index="2">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#3</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open for Reassurance -->
+        <section class="category reassurance">
+            <h2>🤗 Open for Reassurance 🤗</h2>
+            <div class="envelopes-container">
+                <div class="envelope-wrapper" onclick="openModal(this, 'reassurance', 0)">
+                    <div class="envelope" data-category="reassurance" data-index="0">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#1</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'reassurance', 1)">
+                    <div class="envelope" data-category="reassurance" data-index="1">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#2</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-wrapper" onclick="openModal(this, 'reassurance', 2)">
+                    <div class="envelope" data-category="reassurance" data-index="2">
+                        <div class="envelope-front">
+                            <span class="envelope-number">#3</span>
+                        </div>
+                        <div class="envelope-back">
+                            <p class="message-content"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with all my love, from your Bubu 🐻💕🐼</p>
+        </footer>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="bubu-img">🐻💕🐼</div>
+            <h3 id="modal-title">Wait a moment...</h3>
+            <p id="modal-message">Are you sure you're feeling this way?</p>
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms-checkbox" onchange="toggleConfirmBtn()">
+                <label for="terms-checkbox">I confirm this emotion is 100% authentic and I really need this right now</label>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-cancel" onclick="closeModal()">Maybe Not</button>
+                <button class="btn btn-confirm" id="confirm-btn" disabled onclick="revealMessage()">Open Letter 💌</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letter Message Modal -->
+    <div class="letter-modal-overlay" id="letter-modal">
+        <div class="letter-modal">
+            <div class="letter-header">
+                <div class="letter-icons">🐻💌🐼</div>
+                <h3 id="letter-title">A Letter From Your Bubu</h3>
+            </div>
+            <div class="letter-content">
+                <img src="images/valentine-photo.jpg" alt="Us" class="letter-photo" id="letter-photo">
+                <p class="letter-text" id="letter-text"></p>
+            </div>
+            <div class="letter-footer">
+                <p class="signature">Forever yours, your Bubu 🐻💕</p>
+                <button class="letter-close-btn" onclick="closeLetterModal()">Close with a Kiss 💋</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Messages for each category (you can write longer messages here!)
+        const messages = {
+            valentines: [
+                `Happy Valentine's Day, baby! 
+
+Today is a day to celebrate love, and there's no one I'd rather celebrate with than you.
+
+Throughout our whole relationship, you have been my best friend and have always been there for me.
+
+There have been times when i have hurt you, and i never want you to feel that way again.
+
+The purpose of this website is to remind you of how much i love you, and how much i appreciate you and i never ever want you to ever feel any negative emotion.
+
+If at all, you are ever feeling any of the following emotions, please open the envelope and know that the words that are written there are from the bottom of my heart.
+
+I love you more than words could ever express, but I'll spend the rest of my life trying anyway.
+
+I never want you to ever feel that you are not loved, or that you are not appreciated or that you are not enough or ever ever hurt you in ways which i have hurt you in the past.
+
+PS - Please don't open the envelope if you are not feeling any of the following emotions. Pleaseeeeeeeeeeeeee.
+
+Happy Valentine's Day, my bubu. Here's to us, today and always. 🐻💕🐼`
+            ],
+            sad: [
+                `Hey my sweet bubu... 
+
+Babbyyyyyy, done be a sadieeee. 
+        
+I know you're feeling sad right now, and I wish I could be there to hold you so tight that you couldnt even breathe. Your the most cutest and most adorable thing in the whole wide world and you dont deserve to be sad ever.
+
+Seeing you sad makes me sad too and just know that i would do anything to make you smile.
+
+Being sad is a part of being human babe and its okay to feel sad sometimes. But please remember that this feeling will pass, and when it does, I'll still be here loving you just the same.
+
+Whatever is making you sad or confused or whatever it is, just know that it is not as important as you think it is. You are the most important person in my life and i will always be here for you.
+
+Remember that time we were laughing and playing and wrestling and having soo much fun, not caring too much about the world and its problems? That happiness is still here, just taking a little nap. I'm always here to wake it up with you.
+
+I just want you to know that even if you are sad, i will always be here for you. I love every part of you even the sad parts and i will do everything in my efforts to make you feel better again soon.
+
+You're my favorite person in this whole entire universe!`,
+
+                `Hey my sweet bubu... 
+
+Baby beeing sad and emotional about things isnt something thats a bad thing - they show how deeply you feel things, and that's one of the reasons I love you so much.
+
+Just remember sometimes god throws in some sadness, because very soon he will bless us with abundance of happiness and joy. One thing for sure, very soon i will try my best as well to be your happiness and joy.
+
+Just know that i love you, all of you, even the sad parts, especially the sad parts. Making you feel better is my number one priority and i will do everything in my efforts to make you feel better again soon.
+
+Also just know that you don't have to hide your sadness, i will always be here to listen to you and support you and help you feel better.
+
+The world isnt always going to be a happy place, but sometimes just know that the things making you sad arent really worth spending too much time on, you have so many things to be happy about, including me.
+
+Your bubu loves you more than all the stars in the sky!`,
+
+                `Hey my sweet bubu... 
+
+Right now, I want you to close your eyes and imagine me giving you the biggest, warmest bear hug. Can you feel it? I'm squeezing all the sadness away!
+
+I just want to imagine me and you in the future, happy about soo many things in our lives, and know that the sadness you are feeling right now is not going to last forever.
+
+Whatever is making you sad - we can face it together. You never have to carry anything alone because you have me. Always.
+
+You're the most precious thing in my life and nothing - absolutely nothing - can ever change that. Not distance, not time, not any amount of sadness.
+
+Now take a deep breath for me? 
+
+Imagine us in the future, would we be sad or happy? Thats all that happens. 
+
+Your perfect bubu the way you are and you can do whatever makes you happy. Never feel sadness because of any pressure, just know that no matter what, i will always be here for you.
+
+Your bubu loves you more than all the galaxies in the universe!`,
+            ],
+            angry: [
+                `Hey angry bubu... 
+
+Babbyyyyyy, done be angry at me? Im just a babyyyyyy and i make mistakes sometimes.
+
+Babyyyy right now i know you are very angry at me and hate me. I may also be angry at you and said or done some very rude things.
+
+I know I messed up, and I know you're hurt. You have every right to be angry with me. Your feelings are valid, and I'm not going to make excuses.
+
+Your bubu can be silly and make mistakes sometimes, but my love for you is the most real, most genuine thing I know.
+
+This is the non angry me talking - I love you more than anything and i really want this fight to end and go back to being the best most perfect couple in the world.
+
+I know you want to as well. I miss that smile on your cute face, it deserves to be smiling forever and ever.
+
+Im sorry for the hurt i have caused you and for being so unreasonable, just know that deep down i love you sooooo much!`,
+
+                `Hey angry bubu... 
+
+Babyyyyyyyy dont be angry and grumpyyyyyyyyy.
+
+I know i am being very unreasonable and i am sorry for that. I dont know what happens to me sometimes, to hurt the most pure person in the world.
+
+But even when we argue, even when you're mad at me, my heart still knows that 'I love you'. In the end, it will always know that it loves you sooo much and come back to you.
+
+Our love is bigger than any argument, any mistake, any bad day. We've built something beautiful together, and I refuse to let my silly mistakes tear that down.
+
+Let me make it up to you? Tell me how. I'll do whatever it takes. Just reference this note and tell me, i swear i will do better and make things right.
+
+In my heart, I am sending a million sorry kisses and hoping you'll accept at least one of them`,
+
+                `To my grumpy bubu... 
+
+First, let me say this: you're so cute even when you're mad at me. Awww your such a cutie even when you are angry.
+
+But in all seriousness - I'm sorry. I never want to be the reason you're upset. You mean everything to me, and I hate what im doing to you. Just know that its not intentional and i will come back to you with a whole heart.
+
+I promise to be better. I promise to think more carefully. I promise to love you harder and mess up less.
+
+I know its a lot to ask, but please bubu forgive me horrible and stupid behaviour. Just know that i love you sooooo much and you mean the world to me.
+
+I would never want anything ever to come between us.
+
+Please?`
+            ],
+            love: [
+                `My dearest bubu... 
+
+If you're reading this, maybe you're wondering if what we have is real. Maybe the spark feels dim. Maybe you're questioning us.
+
+Let me remind you: I want to take you down memory lane and remember how we started. Remember our first laugh together, in the first escape room? Remember all the times we spent playing and having soo much fun? 
+
+Remember how we cared for each other at all times? Remember all the cute things we have done and given each other? 
+
+That feeling is truly magical and once in a lifetime and we need to protect it at all costs.
+
+I know im in a relationship where my love keeps growing stronger and stronger every day.
+
+Just seeing you face makes my whole day and hearing your voice makes my heart beat faster.
+
+I fall in love with you all over again every single day. That will never change no matter what.
+
+You are my forever!`,
+
+                `My dearest bubu... 
+
+Bubu, i know you have doubts about our relationship and i know you have been hurt in the past.
+
+You're the first thing I think about when I wake up. Before I even open my eyes, my brain goes "I wonder how my bubu is doing."
+
+You're the last thing I think about before I sleep. I literally fall asleep hoping you're having sweet dreams.
+
+Just know that no matter what, i will always be here for you and i will always love you. I choose you. I chose you yesterday. I choose you today.
+
+I'll choose you tomorrow and every day after that. Always and forever.
+
+Your not just a girlfriend to me - you make each and every day of my life so much better, your the person i open up to the most and you always make me feel so loved and special.
+
+Your are a one in a king girl and not loving you the best i can, is the greatest mistake i could ever make.
+
+When you doubt our love, remember this: No matter what, i always want to love with my whole heart. You are literally the girl of my dreams.`,
+
+                `My dearest bubu... 
+
+If you're doubting how much I love you, let me paint you a picture of a future i think of us:
+
+Us in the future, in a house of our own, with our own freedom and space to do whatever we want, and be whoever we want to be.
+
+No judgements, no criticisms, no expectations, no pressure, no stress, no worries, no fears, no doubts.
+
+A family of our own, with our own children, our own happiness and our own joy.
+
+We can do whatever we want, be whoever we want to be, and never ever worry about anything.
+
+I want to take care of you, provide for you, and make you the happiest person in the world.
+
+This is what i imagine about us.
+
+My heart does a happy dance when I see your name pop up. Every. Single. Time. That hasn't changed since day one.
+
+You are loved. SO loved. Never doubt that.`
+            ],
+            reassurance: [
+                `My precious bubu...
+
+Bubu, first of all, i want to belt you, why do you want reassurance right now? Dont you know i love you more than anything in the world? How dare you think i dont.
+
+But in all seriousness, you are Perfect for me and i am Perfect for you.
+
+You're extraordinary, amazing, talented, kind, and the absolute best thing that's ever happened to me.
+
+Whatever feeling in your head you are feeling that you need reassurance for - it's lying. I see you. The real you. And that person is incredible.
+
+Just taking a small look at you makes my heart happy and my soul feel at peace. You are everthing i ever wanted, your so special and im gonna grab onto you so tightly and never let go.
+
+Your bubu believes in you - now it's time for you to believe in yourself too!`,
+
+                `My precious bubu...
+
+Bubu whatever your thinking right now, i want you to know that it is just not true and maybe a misunderstanding.
+
+I literally love you sooooo much, nothing should ever even make you question it.
+
+Whatever thoughts you are having about the future, dont worry about it - We'll figure it out together.
+
+You're not alone. You never have to be alone. You have me forever by your side. All the days of our future, i will always be by your side.
+
+Its me and you against the world. We will always have each other back. 
+
+Your the girl i feel sooo deeeply in love with and i will always be by your side. Nothing can break what we have. And nothing you're facing is too big for us to handle together.
+
+Just know that whatever obstacles we face - We've got this.`,
+
+                `My precious bubu...
+
+How can you ever question my love for you? How is it even possible to think that i dont love you sooooooo sooo soooo much?
+
+I spend every single day of my life thinking about you and how much i love you. Every single day.
+
+I feel soo lucky to have a girlfriend as good as you. You dont realise it but you have made my life so much better and i love you sooooo much.
+
+Whatever obstacles we have ever faced, we have come out of it with more love than ever.
+
+Im sorry if any thing of mine changed, maybe some small things which i am not doing anymore, but i would love for you to tell me about it.
+
+One thing i promise you, i will always respect whatever you feel, and improve myself, until you know that i love you more than anything.
+
+Even if it takes time, even if there are setbacks, even if we have to figure things out as we go - we'll get through this.
+
+Youre loved way more than you realise and everything is gonna get soo much better.
+
+I've got you. Always.`
+            ]
+        };
+
+        const modalTitles = {
+            valentines: "Is it Valentine's Day? 💘",
+            sad: "Feeling sad, bubu? 💧",
+            angry: "Angry at your bubu? 😔",
+            love: "Doubting our love? 💔",
+            reassurance: "Need some comfort? 🤗"
+        };
+
+        const modalMessages = {
+            valentines: "This letter is only to be opened on February 14th! Are you sure it's Valentine's Day?",
+            sad: "Before I share this message, I need to know you're truly feeling down and need some cheering up...",
+            angry: "Before I share my apology, I need to know you're truly upset with me...",
+            love: "Before I remind you of our love, I need to know you're truly feeling distant...",
+            reassurance: "Before I comfort you, I need to know you truly need some reassurance right now..."
+        };
+
+        const letterTitles = {
+            valentines: "Happy Valentine's Day! 💘",
+            sad: "A Hug in Words 💙",
+            angry: "An Apology From Your Bubu 🙏",
+            love: "A Reminder of Our Love 💕",
+            reassurance: "Words of Comfort 🤗"
+        };
+
+        // Images for each envelope (set to null if no image)
+        const letterImages = {
+            valentines: ["images/valentine-photo.jpg"],
+            sad: ["images/sad1.jpg", "images/sad2.jpg", "images/sad3.jpg"],
+            angry: ["images/angry1.jpg", "images/angry2.jpg", "images/angry3.jpg"],
+            love: ["images/feel1.jpg", "images/feel2.jpg", "images/feel3.jpg"],
+            reassurance: ["images/assur1.jpg", "images/assur2.jpg", "images/assur3.jpg"]
+        };
+
+        let currentEnvelope = null;
+        let currentCategory = null;
+        let currentIndex = null;
+
+        function openModal(wrapper, category, index) {
+            const envelope = wrapper.querySelector('.envelope');
+
+            // If already flipped, flip back
+            if (envelope.classList.contains('flipped')) {
+                envelope.classList.remove('flipped');
+                return;
+            }
+
+            currentEnvelope = envelope;
+            currentCategory = category;
+            currentIndex = index;
+
+            document.getElementById('modal-title').textContent = modalTitles[category];
+            document.getElementById('modal-message').textContent = modalMessages[category];
+            document.getElementById('terms-checkbox').checked = false;
+            document.getElementById('confirm-btn').disabled = true;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            currentEnvelope = null;
+        }
+
+        function toggleConfirmBtn() {
+            const checkbox = document.getElementById('terms-checkbox');
+            const btn = document.getElementById('confirm-btn');
+            btn.disabled = !checkbox.checked;
+        }
+
+        function revealMessage() {
+            if (currentEnvelope && currentCategory !== null && currentIndex !== null) {
+                // Mark envelope as opened and flip it
+                currentEnvelope.classList.add('flipped');
+                currentEnvelope.classList.add('opened');
+
+                // Close the terms modal
+                closeModal();
+
+                // Show the letter modal with a slight delay for effect
+                setTimeout(() => {
+                    document.getElementById('letter-title').textContent = letterTitles[currentCategory];
+                    document.getElementById('letter-text').textContent = messages[currentCategory][currentIndex];
+
+                    // Show photo if one exists for this envelope
+                    const photo = document.getElementById('letter-photo');
+                    const imagePath = letterImages[currentCategory] && letterImages[currentCategory][currentIndex];
+
+                    if (imagePath) {
+                        photo.src = imagePath;
+                        photo.classList.add('show');
+                    } else {
+                        photo.classList.remove('show');
+                    }
+
+                    document.getElementById('letter-modal').classList.add('active');
+                }, 400);
+            }
+        }
+
+        function closeLetterModal() {
+            document.getElementById('letter-modal').classList.remove('active');
+        }
+
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const hearts = ['💕', '💗', '💖', '💝', '🩷', '🩵'];
+
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        createHearts();
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close letter modal when clicking outside
+        document.getElementById('letter-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLetterModal();
+            }
+        });
+    </script>
+</body>
+</html>
